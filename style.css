@@ -1,0 +1,346 @@
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(182, 225, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    position: relative;
+    width: 26em;
+    height: 16em;
+}
+
+.card-face {
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: transform 500ms ease-in-out;
+}
+
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("./assets/background.jpeg");
+    background-size: cover;
+    border-radius: 0.5em;
+}
+
+.card.reverse .card-reverse {
+    box-shadow: none;
+    transform: rotateY(0deg);
+}
+
+.card.reverse .card-front {
+    transform: rotateY(180deg);
+}
+
+.card-front .hologram {
+    position: relative;
+    top: 1em;
+    left: 1em;
+    width: 4em;
+    height: 3.2em;
+    background-image: url("./assets/chip.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card-front .logo div {
+    --width: 4.1em;
+    position: absolute;
+    top: 1em;
+    left: calc(100% - var(--width) - 1em);
+    width: var(--width);
+    height: 3.2em;
+    /* background-image: url("./assets/mastercard.png"); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-timing-function: ease;
+}
+
+.card-front .card-number {
+    position: relative;
+    top: 22%;
+    color: white;
+    left: 5%;
+    width: 90%;
+    height: 1.5em;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.card-front .card-number.focus {
+    border: white solid 1px;
+    border-radius: 0.2em;
+}
+
+.card-front .card-holder {
+    position: relative;
+    color: white;
+    width: 70%;
+    height: 2.5em;
+    top: 6em;
+    left: 5%;
+
+}
+
+.card-front .card-holder.focus {
+    border: white solid 1px;
+    border-radius: 0.2em;
+}
+
+.card-front .card-holder #frontLabelName {
+    position: relative;
+    left: 5px;
+    font-size: small;
+    color: rgb(182, 182, 182);
+    font-family: 'Cabin', sans-serif;
+}
+
+.card-front .card-holder .card-holder-value {
+    position: relative;
+    left: 5px;
+    font-size: large;
+    font-family: 'Cabin', sans-serif;
+    text-transform: uppercase;
+}
+
+.card-front .expiration-date {
+    position: relative;
+    color: white;
+    left: 80%;
+    top: 3.5em;
+    width: 16%;
+    font-family: 'Cabin', sans-serif;
+}
+
+.card-front .expiration-date.focus {
+    border: white solid 1px;
+    border-radius: 0.2em;
+}
+
+.card-front .expiration-date #expirationDateLabel {
+    position: relative;
+    color: rgb(182, 182, 182);
+    font-size: small;
+    left: 5px;
+    font-family: 'Cabin', sans-serif;
+}
+
+.card-front .expiration-date .expiration-date-value {
+    position: relative;
+    left: 5px;
+}
+
+.card-reverse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    background-image: url("./assets/background.jpeg");
+    background-size: cover;
+    border-radius: 0.5em;
+}
+
+.card-reverse .magnet-strip {
+    position: relative;
+    width: 100%;
+    height: 2.5em;
+    top: 15%;
+    opacity: 0.7;
+    background-color: black;
+}
+
+.card-reverse .CVV {
+    position: relative;
+    height: 3em;
+    width: 90%;
+    left: 5%;
+    top: 30%;
+}
+
+.card-reverse .CVV #CVVcodeLabel {
+    font-size: small;
+    color: white;
+    font-family: 'Cabin', sans-serif;
+    direction: rtl;
+}
+
+.card-reverse .CVV .CVV-value {
+    width: 100%;
+    height: 2em;
+    background-color: white;
+    border-radius: 0.2em;
+    direction: rtl;
+}
+
+.card-reverse .logo div {
+    position: absolute;
+    width: 4em;
+    height: 3.5em;
+    top: 70%;
+    left: 80%;
+    background-image: url("./assets/mastercard.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-timing-function: ease;
+
+}
+
+.card-contener {
+    position: relative;
+    top: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 500px;
+    z-index: 10;
+}
+
+.content-box {
+    height: 40em;
+    width: 40em;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form-contener {
+    position: relative;
+    width: 100%;
+    height: 25em;
+    background-color: white;
+    border-radius: 0.5em;
+}
+
+form {
+    margin-top: 30%;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: grid;
+    width: 50%;
+    grid-template-columns: repeat(3, 10em);
+    grid-template-rows: repeat(7);
+    row-gap: 5px;
+    column-gap: 5px;
+}
+
+#cardNumberLabel {
+    grid-row-start: 1;
+}
+
+#cardNumber {
+    grid-row-start: 2;
+    grid-column: span 3;
+    height: 2em;
+}
+
+#cardNameLabel {
+    grid-row-start: 3;
+}
+
+#cardName {
+    grid-row-start: 4;
+    grid-column: span 3;
+    height: 2em;
+}
+
+#ExpirationDateLabel {
+    grid-row-start: 5;
+}
+
+#ExpirationMonth,
+#ExpirationYear {
+    grid-row-start: 6;
+    height: 2em;
+}
+
+#CVVcodeLabel {
+    grid-row-start: 5;
+    grid-column-start: 3;
+}
+
+#CVVcode {
+    grid-row-start: 6;
+    height: 2em;
+}
+
+#SubmitFormButton {
+    grid-row-start: 7;
+    grid-column: span 3;
+    height: 2.5em;
+    color: white;
+    background-color: rgb(49, 127, 230);
+    border: solid white 1px;
+    border-radius: 0.3em;
+}
+
+#cardNumber,
+#CVVcode,
+#ExpirationMonth,
+#ExpirationYear,
+#cardName,
+#cardNumber {
+    border: solid grey 1px;
+    border-radius: 0.3em;
+}
+
+input:focus,
+select:focus {
+    outline: solid rgb(51, 146, 255) 2px;
+}
+
+.logo div:nth-child(1) {
+    background-image: url("./assets/mastercard.png");
+    animation: rollDown 20s forwards infinite;
+}
+
+.logo div:nth-child(2) {
+    background-image: url("./assets/visa.png");
+    animation: rollDown2 20s forwards infinite;
+}
+
+@keyframes rollDown {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes rollDown2 {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
