@@ -44,16 +44,22 @@ number.addEventListener('keyup', (event) => {
         return;
     } else {
         if (event.target.value.length > 16) {
-            return;
+            event.target.value = event.target.value.slice(0, 16);
         }
         card.getElementsByClassName("card-number")[0].innerHTML = event.target.value.toString().replace(/\d{4}(?=.)/g, '$&  ');;
     }
 });
 
 cardName.addEventListener('keyup', (event) => {
+    if (event.target.value.length > 24) {
+        event.target.value = event.target.value.slice(0, 24);
+    }
     card.getElementsByClassName('card-holder-value')[0].innerHTML = event.target.value;
 })
 CVV.addEventListener('keyup', (event) => {
+    if (event.target.value.length > 4) {
+        event.target.value = event.target.value.slice(0, 4);
+    }
     card.getElementsByClassName('CVV-value')[0].innerHTML = event.target.value;
 })
 month.addEventListener('change', (event) => {
