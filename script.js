@@ -10,7 +10,7 @@ optDefault.value = "";
 optDefault.innerHTML = "Month";
 optDefault.defaultSelected = true;
 month.appendChild(optDefault);
-for (var i = 1; i <= 31; i++) {
+for (var i = 1; i <= 12; i++) {
     var opt = document.createElement('option');
     opt.value = i;
     opt.innerHTML = i;
